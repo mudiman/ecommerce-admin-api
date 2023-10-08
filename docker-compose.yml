@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:12
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=app
+    volumes:
+      - app-db-data:/var/lib/postgresql/data
+volumes:
+  app-db-data:
+    driver: local
+networks:
+  ecomadminapi:
+    driver: bridge
